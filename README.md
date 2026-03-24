@@ -27,30 +27,6 @@ I'm a newbie programmer with a genuine passion for learning and building things 
 - Cybersecurity Concepts
 - Web Security Best Practices
 
-## 📚 Beginner Projects
-
-Here are some of the projects I've built while learning:
-
-### 1. [Portfolio Website](link-to-project)
-A simple personal portfolio showcasing my skills and projects. Built with HTML, CSS, and vanilla JavaScript for smooth navigation and interactivity.
-- **Tech:** HTML, CSS, JavaScript
-- **What I Learned:** Semantic HTML, Flexbox/Grid, Event Handling
-
-### 2. [To-Do List App](link-to-project)
-A simple to-do list application that demonstrates DOM manipulation and local storage functionality.
-- **Tech:** HTML, CSS, JavaScript
-- **What I Learned:** DOM Methods, Local Storage API, User Interaction
-
-### 3. [Calculator App](link-to-project)
-A basic calculator built to practice JavaScript logic and user interface design.
-- **Tech:** HTML, CSS, JavaScript
-- **What I Learned:** Conditional Statements, Functions, Event Listeners
-
-### 4. [Weather App](link-to-project) *(In Progress)*
-Learning to fetch data from APIs and display dynamic content.
-- **Tech:** HTML, CSS, JavaScript, REST APIs
-- **What I Learned:** Async/Await, API Integration, Error Handling
-
 ## 🌱 Currently Learning
 
 - ✅ JavaScript Fundamentals (Variables, Functions, Objects, Arrays)
