@@ -18,3 +18,7 @@ Thumbs.db
 
 # Environment Variables
 .env
+# Auto-added by RepoBot
+dist/
+build/
+*.log
