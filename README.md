@@ -2,7 +2,7 @@
 
 # Hey there! 👋 I'm Isaac Balintay
 
-**Full-Stack Developer** | **AI Enthusiast** | **Automation Builder**
+**Learning to Code** | **AI Curious** | **Building Stuff**
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&random=false&width=600&lines=Full-Stack+Developer;AI+%26+Automation+Builder;React+%7C+Node.js+%7C+Python;Building+the+future+with+code;Available+for+projects" alt="Typing SVG" />
 
