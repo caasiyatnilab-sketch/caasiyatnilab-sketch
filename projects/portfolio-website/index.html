@@ -7,6 +7,7 @@
     <title>Portfolio Website</title>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <h1>My Portfolio</h1>
         <nav>
@@ -17,18 +18,20 @@
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio website!</p>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of my projects...</p>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: example@example.com</p>
-    </section>
+    <main id="main-content" tabindex="-1">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio website!</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Here are some of my projects...</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

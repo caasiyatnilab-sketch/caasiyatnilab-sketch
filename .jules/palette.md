@@ -1,0 +1,3 @@
+## 2025-05-14 - Skip Link implementation for static sites
+**Learning:** In simple static websites without a complex design system, implementing a "Skip to Content" link requires adding `tabindex="-1"` to the target landmark (e.g., `<main>`) to ensure consistent focus behavior across browsers, as some may not move the programmatic focus to a non-interactive element by default. Additionally, adding `main:focus { outline: none; }` prevents a distracting focus ring on the entire page content while still allowing the hidden focus move to work.
+**Action:** Always pair skip-link targets with `tabindex="-1"` and suppress the focus ring on the landmark container itself to keep the UX clean.
