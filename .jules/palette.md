@@ -1,0 +1,3 @@
+## 2025-05-15 - Improving Smooth Scroll Accessibility
+**Learning:** Smooth scrolling with `scrollIntoView` only moves the viewport, not the keyboard focus. This breaks the expected tab order for keyboard and screen reader users, who would find their focus still back at the navigation link they just clicked.
+**Action:** When implementing smooth scrolling for internal links, always move the focus to the target element using `element.focus()`. Ensure the target element has `tabindex="-1"` if it's not naturally focusable, and use CSS to hide the focus ring if it's a decorative container rather than a specific interactive element.
