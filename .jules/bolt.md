@@ -1,0 +1,3 @@
+## 2024-04-11 - Use native CSS scroll-behavior
+**Learning:** Replacing JavaScript-based smooth scrolling with CSS `scroll-behavior: smooth` offloads animation work to the browser's compositor thread, improving main-thread responsiveness. It also natively supports standard browser behaviors like URL hash updates and the back button, which are often broken or require extra logic in JS implementations.
+**Action:** Prefer CSS `scroll-behavior: smooth` over JavaScript `scrollIntoView({ behavior: 'smooth' })` for simple anchor navigation. Always wrap it in a `@media (prefers-reduced-motion: no-preference)` query for accessibility.

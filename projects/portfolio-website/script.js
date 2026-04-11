@@ -1,17 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
+    /* ⚡ Bolt: Removed redundant smooth scrolling JS.
+       Browser now handles this natively via CSS scroll-behavior.
+       This reduces main-thread execution and improves responsiveness. */
     
     console.log('Portfolio website loaded successfully!');
 });
