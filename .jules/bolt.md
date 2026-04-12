@@ -1,0 +1,3 @@
+## 2025-05-15 - Prefer native CSS over JS for smooth scrolling
+**Learning:** Replacing JavaScript-based smooth scrolling with the native CSS `scroll-behavior: smooth` property reduces the main-thread workload and avoids the need for `e.preventDefault()` on navigation links. This preserves native browser behavior, such as updating the URL hash and maintaining functional back/forward navigation, while also respecting user accessibility preferences through media queries like `prefers-reduced-motion`.
+**Action:** Always check for native browser support before implementing custom JavaScript animations for standard UI behaviors.
