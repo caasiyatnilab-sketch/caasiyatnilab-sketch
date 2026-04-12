@@ -3,12 +3,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const href = this.getAttribute('href');
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Only intercept internal hash links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+
+                try {
+                    const targetSection = document.querySelector(href);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                        // Update URL hash without jumping
+                        history.pushState(null, null, href);
+
+                        // Move focus to target section for assistive technology
+                        targetSection.focus({ preventScroll: true });
+                    }
+                } catch (error) {
+                    console.error('Error navigating to section:', error);
+                }
             }
         });
     });
