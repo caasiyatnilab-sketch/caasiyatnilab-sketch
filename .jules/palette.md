@@ -1,0 +1,3 @@
+## 2024-05-15 - Accessible Smooth Scrolling & Focus Management
+**Learning:** For single-page navigation to be accessible, it's not enough to scroll visually. You must also move keyboard focus to the target element using `element.focus()`. To prevent browsers from jumping to the element twice (once by focus and once by scroll), use `element.focus({ preventScroll: true })`. Additionally, landmarks like `<main>` should have `tabindex="-1"` and `outline: none` to receive focus programmatically without showing a focus ring.
+**Action:** Use `history.pushState` to update the URL, `scrollIntoView` for visual movement, and `focus({ preventScroll: true })` for accessibility in all SPA-style navigation scripts.
