@@ -3,12 +3,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Only handle internal hash links
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                try {
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        // Smooth scroll to the target section
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                        // Update URL hash without triggering browser jump
+                        history.pushState(null, null, targetId);
+
+                        // Move focus to the section for accessibility, ensuring focus follows movement
+                        targetSection.focus({ preventScroll: true });
+                    }
+                } catch (error) {
+                    console.error('Navigation error:', error);
+                }
             }
         });
     });

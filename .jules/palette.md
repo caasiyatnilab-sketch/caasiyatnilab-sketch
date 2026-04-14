@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Internal Navigation
+**Learning:** For internal page navigation to work reliably with assistive technology, target elements (like sections) should have `tabindex="-1"` and be focused programmatically via JavaScript after scrolling. This ensures the focus follows the visual movement, allowing screen readers to announce the new content correctly. Using `history.pushState` allows updating the URL hash for shareability without triggering the browser's default jump behavior, which would interrupt the smooth scroll animation.
+**Action:** Always pair smooth scrolling with programmatic focus management and `tabindex="-1"` on target elements to ensure a delightfull AND accessible experience.
