@@ -1,0 +1,3 @@
+## 2025-05-14 - Native CSS Smooth Scrolling vs. JavaScript
+**Learning:** For static sites with simple navigation, using JavaScript for smooth scrolling is an anti-pattern that unnecessarily blocks the main thread. Native CSS `scroll-behavior: smooth` is processed on the compositor thread, leading to smoother animations and better responsiveness. Additionally, native scrolling correctly handles URL hash updates without extra code.
+**Action:** Always check for native browser features (CSS/HTML) that can replace JavaScript implementations for common UI patterns like scrolling, transitions, or validation.
