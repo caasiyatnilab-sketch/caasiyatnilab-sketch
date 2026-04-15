@@ -1,0 +1,3 @@
+## 2026-04-15 - Replacing JavaScript smooth scroll with native CSS
+**Learning:** JavaScript-based smooth scrolling runs on the main thread, which can cause jank and delay responsiveness, especially on low-end devices or during heavy script execution. Native CSS `scroll-behavior: smooth` is processed on the compositor thread, ensuring smooth animations and preserving native browser behavior like URL hash updates and accessibility features.
+**Action:** Use native CSS `scroll-behavior: smooth` instead of JavaScript implementations for internal navigation. Always wrap it in a `@media (prefers-reduced-motion: no-preference)` query to respect user accessibility settings.
