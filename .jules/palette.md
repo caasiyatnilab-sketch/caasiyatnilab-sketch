@@ -1,0 +1,3 @@
+## 2025-05-14 - Robust Focus Management in Single-Page Navigation
+**Learning:** In single-page websites with smooth scrolling, visual navigation often leaves keyboard and screen reader focus behind. To fix this, target elements (like `<main>` or `<section>`) must have `tabindex="-1"` to be programmatically focusable. Using `element.focus({ preventScroll: true })` ensures that the focus shift doesn't interrupt or conflict with the smooth scroll animation.
+**Action:** Always pair internal link navigation with programmatic focus shifts to the target, ensuring all target containers have `tabindex="-1"`.
