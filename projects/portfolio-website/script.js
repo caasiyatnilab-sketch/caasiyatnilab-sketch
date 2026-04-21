@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('nav a, .skip-link');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Programmatically focus the target section to ensure keyboard/screen reader focus follows
+                // We use a small timeout to allow the smooth scroll to begin/happen
+                setTimeout(() => {
+                    targetSection.focus({ preventScroll: true });
+                }, 100);
             }
         });
     });
