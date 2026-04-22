@@ -1,0 +1,3 @@
+## 2025-05-14 - Native Smooth Scrolling and Deferring Scripts
+**Learning:** Native CSS `scroll-behavior: smooth` is more efficient than JavaScript implementations as it runs on the compositor thread and reduces main-thread execution. Additionally, using the `defer` attribute on scripts in the `<head>` allows the browser to download the script in parallel with HTML parsing without blocking, leading to faster DOMContentLoaded and Load events.
+**Action:** Prefer native CSS for smooth scrolling when possible, ensuring it's wrapped in `@media (prefers-reduced-motion: no-preference)` for accessibility. Use `<script defer>` in the `<head>` for non-critical scripts.
