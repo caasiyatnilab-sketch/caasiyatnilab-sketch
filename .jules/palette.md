@@ -1,0 +1,3 @@
+## 2025-05-14 - Focus Management in Custom Scrolling
+**Learning:** When using JavaScript to implement smooth scrolling (or `scroll-behavior: smooth`), visual position changes but keyboard/screen reader focus remains on the trigger. To ensure accessibility, focus must be programmatically moved to the target element (e.g., using `element.focus()`) after scrolling. Target elements must have `tabindex="-1"` to be focusable but not part of the tab order.
+**Action:** Always pair custom scrolling logic with focus management. Use `history.pushState` to update the URL hash without triggering default browser jumps, maintaining both accessibility and a clean UX.
