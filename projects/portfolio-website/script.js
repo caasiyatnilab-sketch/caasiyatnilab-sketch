@@ -3,12 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Performance optimization: Using native CSS scroll-behavior: smooth.
+            // We only intercept the click to manage focus for accessibility.
+            if (targetId.startsWith('#') && targetId.length > 1) {
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Small timeout to allow the browser to start the smooth scroll
+                    // before moving focus, ensuring a smoother transition for screen readers.
+                    setTimeout(() => {
+                        targetElement.focus({ preventScroll: true });
+                    }, 100);
+                }
             }
         });
     });
