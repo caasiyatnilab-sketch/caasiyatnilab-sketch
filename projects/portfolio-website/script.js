@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
     
-    navLinks.forEach(link => {
+    internalLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const targetElement = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                // Move focus to target element for accessibility
+                setTimeout(() => {
+                    targetElement.focus({ preventScroll: true });
+                }, 100);
             }
         });
     });
