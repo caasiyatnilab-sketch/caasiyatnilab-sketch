@@ -1,0 +1,4 @@
+## 2025-05-15 - Security Enhancement: Content Security Policy & Referrer-Policy
+**Vulnerability:** Absence of basic security headers (CSP and Referrer-Policy) on the portfolio website, leading to potential XSS risks and data leakage.
+**Learning:** For static HTML sites, `<meta>` tags are the primary way to enforce security policies. A restrictive `default-src 'self'` CSP is ideal but can break legitimate external assets like fonts or styles; a more compatible but still secure starting point is `default-src 'self'; img-src 'self' https:; style-src 'self' 'unsafe-inline' https:; font-src https:;`. Additionally, `strict-origin-when-cross-origin` is the modern standard for Referrer-Policy.
+**Prevention:** Always include defensive security headers in the `<head>` of HTML files. Standardize a secure-by-default template for new static projects that includes these headers.
