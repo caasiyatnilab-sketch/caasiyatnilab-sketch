@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Skip-to-Content Link Pattern
+**Learning:** A robust and accessible skip-to-content link pattern for static sites involves: 1) A link as the first child of `<body>` that targets a `<main>` landmark. 2) The `<main>` element having `tabindex="-1"` to allow programmatic focus without adding it to the natural tab order. 3) CSS that hides the link off-screen (e.g., `top: -40px`) but uses `transition: top 0.3s` to smoothly slide it into view when focused.
+**Action:** Use this standard pattern (HTML landmark + negative positioning + transition) for any project requiring skip-link navigation.
