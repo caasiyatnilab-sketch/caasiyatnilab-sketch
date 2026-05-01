@@ -1,0 +1,3 @@
+## 2025-05-14 - Redundant DOMContentLoaded and Native Smooth Scrolling
+**Learning:** Using the `defer` attribute on scripts makes the `DOMContentLoaded` event listener redundant because deferred scripts are executed after the document has been parsed but before `DOMContentLoaded` fires. Additionally, native CSS `scroll-behavior: smooth` is more performant than JavaScript-based implementations as it's handled by the browser's compositor thread.
+**Action:** Always check for `defer` or `type="module"` on scripts before adding `DOMContentLoaded` listeners, and prioritize CSS for simple animations like smooth scrolling.
