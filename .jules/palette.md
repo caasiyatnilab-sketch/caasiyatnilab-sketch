@@ -1,0 +1,3 @@
+## 2025-05-03 - Accessible Navigation with Native Smooth Scroll
+**Learning:** When replacing JavaScript smooth scrolling with native CSS `scroll-behavior: smooth`, it is essential to retain a click event listener that programmatically focuses the target element (which must have `tabindex="-1"`). This ensures that screen readers correctly identify the new context and that the keyboard tab order is preserved, bridging the gap between visual transitions and accessibility requirements.
+**Action:** Use `element.focus()` in navigation scripts and ensure target sections have `tabindex="-1"` whenever using native CSS smooth scrolling for in-page navigation.
