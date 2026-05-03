@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; style-src 'self' 'unsafe-inline' https:; font-src https:; upgrade-insecure-requests;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,18 +20,19 @@
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio website!</p>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of my projects...</p>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: example@example.com</p>
-    </section>
-    <script src="script.js"></script>
+    <main>
+        <section id="about" tabindex="-1">
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio website!</p>
+        </section>
+        <section id="projects" tabindex="-1">
+            <h2>Projects</h2>
+            <p>Here are some of my projects...</p>
+        </section>
+        <section id="contact" tabindex="-1">
+            <h2>Contact</h2>
+            <p>Email: example@example.com</p>
+        </section>
+    </main>
 </body>
 </html>
