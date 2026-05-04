@@ -1,0 +1,3 @@
+## 2025-05-04 - Accessible Smooth Scrolling Pattern
+**Learning:** Native `scroll-behavior: smooth` and `element.scrollIntoView()` provide a great visual experience but fail to move keyboard focus or screen reader context. To make in-page navigation truly accessible, target elements must have `tabindex="-1"` and receive programmatic focus via `.focus({ preventScroll: true })` after the scroll is initiated. Updating the URL hash with `history.pushState` ensures the browser's back button and link sharing work as expected without triggering an immediate jump.
+**Action:** Always pair smooth scrolling with programmatic focus management and `tabindex="-1"` on target sections.
