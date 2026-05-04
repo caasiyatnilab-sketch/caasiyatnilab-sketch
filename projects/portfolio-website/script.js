@@ -8,7 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Use native CSS smooth scrolling by calling focus() on the target section.
+                // The target section has tabindex="-1" to make it programmatically focusable.
+                // This is more performant than scrollIntoView({ behavior: 'smooth' })
+                // and better for accessibility.
+                targetSection.focus();
+
+                // Update URL hash without triggering a second browser-native scroll jump
+                history.pushState(null, null, targetId);
             }
         });
     });
