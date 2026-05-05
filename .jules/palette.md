@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Smooth Scrolling Pattern
+**Learning:** Combining CSS `scroll-behavior: smooth` with JavaScript focus management requires careful handling. Using `.focus()` on a target with `tabindex="-1"` is essential for screen reader continuity. To avoid "double jumps" where both the browser and JS try to scroll, `history.pushState` can update the URL hash silently while JS/CSS handles the motion.
+**Action:** Always pair in-page navigation with `tabindex="-1"` on targets and programmatic `.focus()` calls. Use `history.pushState` to keep the URL in sync without triggering native jump behavior when smooth scrolling is desired.
