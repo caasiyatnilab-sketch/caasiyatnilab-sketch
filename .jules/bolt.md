@@ -1,0 +1,3 @@
+## 2025-05-15 - [Smooth Scrolling & Script Loading Optimization]
+**Learning:** Offloading smooth scrolling to native CSS and using the `defer` attribute for scripts improves performance by reducing main-thread JS execution and avoiding render-blocking. However, this pattern requires explicit accessibility handling (focus management) and event delegation for optimal efficiency.
+**Action:** When optimizing navigation, prioritize CSS `scroll-behavior`, use `defer` for scripts, and always implement event delegation on parent containers while ensuring `tabindex="-1"` and `.focus({ preventScroll: true })` are used for accessibility.
