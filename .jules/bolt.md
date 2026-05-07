@@ -1,0 +1,3 @@
+## 2024-05-23 - Native Smooth Scrolling and Focus Management
+**Learning:** For static sites, using native CSS `scroll-behavior: smooth` is more performant than JavaScript-based scrolling as it offloads the animation to the compositor thread. However, to maintain accessibility, focus must be manually managed using `element.focus({ preventScroll: true })`. Also, allowing the default link behavior for hash links simplifies the code and ensures the URL hash and browser history are handled correctly without extra JS.
+**Action:** Use CSS `scroll-behavior: smooth` (respecting `prefers-reduced-motion`) and combine it with a single event listener using delegation for focus management and `preventScroll: true`.
