@@ -1,0 +1,3 @@
+## 2025-05-14 - Native CSS Smooth Scrolling with Accessible Focus Management
+**Learning:** Using native CSS `scroll-behavior: smooth` offloads animation work to the browser's compositor thread, which is more performant than JavaScript-based `scrollIntoView`. However, to maintain accessibility, programmatic focus must be managed manually. Using `element.focus({ preventScroll: true })` allows updating the focus ring and screen reader position without interrupting the smooth CSS animation with an instant jump.
+**Action:** Prefer native CSS for smooth scrolling and use event delegation on parent containers to minimize the number of event listeners. Always pair with `tabindex="-1"` and `{ preventScroll: true }` focus management.
