@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Smooth Scrolling & Focus Management
+**Learning:** Native CSS `scroll-behavior: smooth` handles the animation efficiently but doesn't manage focus. Screen readers stay at the link location unless focus is programmatically moved to the target. Using `element.focus({ preventScroll: true })` allows syncing the accessibility tree with the visual scroll position without causing jerky jumps or redundant scrolling.
+**Action:** Always pair native smooth scrolling with a lightweight JS listener that moves focus to the target section (which should have `tabindex="-1"` and `outline: none`).
