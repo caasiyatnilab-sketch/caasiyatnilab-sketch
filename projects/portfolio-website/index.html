@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Content Security Policy: Restricts resource loading to trusted sources to mitigate XSS risks -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; upgrade-insecure-requests;">
+    <!-- Referrer-Policy: Protects user privacy by controlling how much referrer information is sent with requests -->
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
 </head>
