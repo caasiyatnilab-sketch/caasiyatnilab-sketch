@@ -1,0 +1,3 @@
+## 2026-05-11 - Native Smooth Scrolling and Event Delegation
+**Learning:** Shifting smooth scroll animations from JavaScript to native CSS (`scroll-behavior: smooth`) improves performance by offloading work to the browser's compositor thread. When combining this with programmatic focus for accessibility, using `element.focus({ preventScroll: true })` is critical to ensure the focus update doesn't interrupt the smooth scroll animation with an instant jump.
+**Action:** Prefer CSS for animations when possible; use event delegation to reduce event listener overhead; always use `preventScroll: true` when managing focus alongside smooth scrolling.
