@@ -1,17 +1,20 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-    
-    console.log('Portfolio website loaded successfully!');
+document.addEventListener('DOMContentLoaded', () => {
+  const mainNav = document.getElementById('main-nav');
+  const skipLink = document.querySelector('.skip-link');
+
+  const handleNavClick = (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const targetId = link.getAttribute('href');
+    if (!targetId || !targetId.startsWith('#') || targetId === '#') return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.focus({ preventScroll: true });
+    }
+  };
+
+  [mainNav, skipLink].forEach(el => el?.addEventListener('click', handleNavClick));
+  console.log('Portfolio website loaded successfully!');
 });
