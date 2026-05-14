@@ -1,0 +1,3 @@
+## 2025-05-15 - Optimized Navigation with Event Delegation and Native Smooth Scroll
+**Learning:** Offloading smooth scroll animations to native CSS ('scroll-behavior: smooth') is more performant than JavaScript alternatives because it runs on the browser's compositor thread. Combining this with event delegation on the <nav> element reduces memory usage and initialization time. To maintain accessibility, using .focus({ preventScroll: true }) allows focus synchronization without interrupting the native animation.
+**Action:** Use event delegation for navigation links and prefer native CSS for animations when possible. Always pair programmatic focus with preventScroll: true when smooth scroll is active.

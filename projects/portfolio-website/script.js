@@ -1,17 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+(function() {
+    // Bolt Optimization: Event delegation on <nav> improves performance and reduces memory usage.
+    // Offloading smooth scroll to CSS ('scroll-behavior: smooth') improves performance by using the browser's compositor thread.
+    const nav = document.querySelector('nav');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+    if (nav) {
+        nav.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+
+            const targetId = link.getAttribute('href');
+            if (!targetId || targetId === '#' || !targetId.startsWith('#')) return;
             
+            const targetSection = document.querySelector(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Bolt Optimization: Call focus({ preventScroll: true }) to maintain accessibility
+                // without interrupting the native CSS smooth scroll animation.
+                targetSection.focus({ preventScroll: true });
             }
         });
-    });
+    }
     
     console.log('Portfolio website loaded successfully!');
-});
+})();
