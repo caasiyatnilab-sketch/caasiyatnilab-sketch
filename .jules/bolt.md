@@ -1,0 +1,3 @@
+## 2025-05-15 - Native Smooth Scrolling Optimization
+**Learning:** Offloading smooth scrolling from the JavaScript main thread to the browser's compositor thread via `scroll-behavior: smooth` significantly improves frame rates and reduces main-thread jank, especially on low-end devices. Combining this with `tabindex="-1"` and `.focus({ preventScroll: true })` ensures accessibility is maintained without conflicting with the native animation.
+**Action:** Prefer CSS-based smooth scrolling over JavaScript `scrollIntoView` or custom animation loops. Always pair with programmatic focus management for accessibility.
