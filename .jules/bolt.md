@@ -1,0 +1,3 @@
+## 2025-05-15 - Offload smooth scrolling to CSS
+**Learning:** Native CSS `scroll-behavior: smooth` is more performant than JavaScript-based implementations because it runs on the browser's compositor thread, freeing up the main thread and providing smoother animations. However, it requires manual focus management for accessibility since browsers don't automatically move focus to the target section.
+**Action:** Use CSS `scroll-behavior: smooth` combined with `element.focus({ preventScroll: true })` in JavaScript to achieve performant and accessible in-page navigation.
