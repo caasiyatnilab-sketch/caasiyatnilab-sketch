@@ -1,17 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+(function() {
+    const nav = document.querySelector('nav');
+    if (nav) {
+        nav.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#') && href.length > 1) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    targetSection.focus({ preventScroll: true });
+                }
             }
         });
-    });
+    }
     
     console.log('Portfolio website loaded successfully!');
-});
+})();
