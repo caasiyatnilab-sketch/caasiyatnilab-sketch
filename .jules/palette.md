@@ -1,0 +1,3 @@
+## 2025-05-15 - Focus Management in Smooth Scrolling
+**Learning:** When implementing smooth scroll for internal links, visual movement alone is insufficient for accessibility. Screen readers and keyboard users remain at the source link unless focus is programmatically moved to the target element.
+**Action:** Always pair `scrollIntoView` with `.focus()` on the target element (using `tabindex="-1"` if the target is not naturally focusable). Use `preventScroll: true` in the focus options to avoid double-scrolling or jumping if the browser tries to scroll to the focused element after the smooth transition.
