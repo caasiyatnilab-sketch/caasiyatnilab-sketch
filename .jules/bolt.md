@@ -1,0 +1,3 @@
+## 2025-05-14 - Optimized script loading and event handling
+**Learning:** In a static site without a build system, placing scripts at the end of the body is a common but less efficient pattern than using `defer` in the head. `defer` allows parallel downloading without blocking HTML parsing. Additionally, individual event listeners on many navigation links increase memory overhead compared to event delegation on a common parent.
+**Action:** Always prefer `defer` for non-critical scripts and use event delegation for navigation components to ensure a lean memory footprint and faster Time to Interactive (TTI).
