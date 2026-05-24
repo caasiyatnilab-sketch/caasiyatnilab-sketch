@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Internal Navigation
+**Learning:** Single-page smooth scrolling logic often ignores keyboard and screen reader users. When a link is clicked, the visual scroll happens, but the programmatic focus remains on the triggering link. This forces screen readers to stay at the top of the page and keyboard users to "re-tab" through the entire navigation for every jump.
+**Action:** Always pair smooth-scroll jumps with programmatic focus shifts. Ensure target elements have `tabindex="-1"` and call `.focus({ preventScroll: true })` after the scroll transition begins or completes.
