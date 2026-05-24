@@ -3,12 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Validate that it's an internal link to prevent issues with malformed or external URLs
+            if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                e.preventDefault();
+                try {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } catch (error) {
+                    console.error('Invalid selector:', targetId);
+                }
             }
         });
     });
