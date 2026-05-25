@@ -1,17 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+const nav = document.querySelector('nav');
+
+// Optimization: Use event delegation on the nav container to reduce memory usage and initialization time.
+// Since the script is loaded with 'defer', it executes after DOM parsing, making DOMContentLoaded redundant.
+if (nav) {
+    nav.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const targetId = link.getAttribute('href');
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            try {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (error) {
+                console.error('Invalid selector:', targetId, error);
             }
-        });
+        }
     });
-    
-    console.log('Portfolio website loaded successfully!');
-});
+}
+
+console.log('Portfolio website initialized successfully!');
