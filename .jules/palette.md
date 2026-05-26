@@ -1,0 +1,3 @@
+## 2025-05-26 - Accessible Internal Navigation Pattern
+**Learning:** True accessible internal navigation isn't just about smooth scrolling. It requires a four-part orchestration: 1) A skip-to-content link for keyboard users. 2) Semantic landmarks like `<main>` to provide structure. 3) Programmatic focus management (using `tabindex="-1"` and `.focus({ preventScroll: true })`) so screen readers follow visual transitions. 4) Respecting `prefers-reduced-motion` to avoid causing vestibular distress.
+**Action:** Always implement this "Four-Pillar Navigation" pattern when adding internal anchor links to ensure both delight and accessibility.
