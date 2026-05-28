@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+                targetSection.focus({ preventScroll: true });
             }
         });
     });
