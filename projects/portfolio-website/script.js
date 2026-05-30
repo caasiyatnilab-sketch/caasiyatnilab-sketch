@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                targetSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+                // Move focus to the target section for accessibility
+                targetSection.focus({ preventScroll: true });
             }
         });
     });
