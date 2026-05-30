@@ -1,17 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-    
-    console.log('Portfolio website loaded successfully!');
-});
+// Logic for smooth scrolling is now handled by CSS 'scroll-behavior: smooth' for better performance.
+// The 'defer' attribute on the script tag ensures this code runs after the DOM is parsed.
+console.log('Portfolio website loaded successfully!');
