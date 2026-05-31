@@ -1,0 +1,3 @@
+## 2025-05-14 - Optimize Critical Rendering Path and Event Handling
+**Learning:** Moving the `<title>` tag before the stylesheet and deferring the script in the `<head>` significantly improves the Critical Rendering Path by parallelizing resource fetching and ensuring the page title renders as early as possible. Event delegation on the navigation menu reduces memory overhead and improves performance compared to adding multiple individual listeners.
+**Action:** Always place the `<title>` tag before `<link rel="stylesheet">` and use the `defer` attribute on scripts in the `<head>` for static sites. Favor event delegation for interactive elements in lists or menus.
