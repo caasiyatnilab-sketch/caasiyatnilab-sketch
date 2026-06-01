@@ -1,17 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    // Optimization: Use event delegation on the <nav> element to handle all navigation link clicks.
+    // This reduces the number of event listeners, improving memory efficiency and performance.
+    const nav = document.querySelector('nav');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+    if (nav) {
+        nav.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Ensure the clicked element is a link and has an 'href' attribute.
+            if (!link || !link.getAttribute('href')) return;
+
+            const targetId = link.getAttribute('href');
+
+            // Only handle internal links starting with '#'.
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
-    });
+    }
     
     console.log('Portfolio website loaded successfully!');
 });
