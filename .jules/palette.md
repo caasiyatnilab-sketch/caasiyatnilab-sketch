@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Single-Page Navigation
+**Learning:** Smooth scrolling alone is insufficient for accessibility in single-page applications. Without programmatically shifting focus to the target section, screen reader users remain at the navigation source, losing context of their position. Using `tabindex="-1"` and `.focus({ preventScroll: true })` correctly aligns the accessibility tree with the visual scroll.
+**Action:** Always pair smooth scroll animations with programmatic focus management on the target container, respecting the `prefers-reduced-motion` media query for inclusive design.
