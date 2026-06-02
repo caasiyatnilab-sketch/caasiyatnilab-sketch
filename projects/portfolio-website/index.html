@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
+    <!-- CSS is placed after title to optimize for title rendering -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Defer script loading to parallelize fetching and improve TTI/LCP -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,6 +32,5 @@
         <h2>Contact</h2>
         <p>Email: example@example.com</p>
     </section>
-    <script src="script.js"></script>
 </body>
 </html>

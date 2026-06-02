@@ -1,0 +1,3 @@
+## 2025-05-14 - [Critical Path and Event Delegation]
+**Learning:** For static sites, moving the script to the head with `defer` and placing the `<title>` before CSS optimizations significantly improves Time to Interactive (TTI) and Largest Contentful Paint (LCP) by parallelizing asset fetching and prioritizing title rendering. Event delegation using `e.target.closest('a')` is a robust way to handle clicks on nested elements within anchor tags while reducing memory overhead.
+**Action:** Always prioritize placing the `<title>` tag first in the `<head>` and use `defer` for scripts in the head to parallelize downloads. Use event delegation for lists of interactive elements.
