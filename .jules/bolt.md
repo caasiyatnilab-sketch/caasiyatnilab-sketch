@@ -1,0 +1,3 @@
+## 2025-05-15 - Critical Rendering Path and Event Delegation in Static Sites
+**Learning:** In simple static sites without a build system, placing the `<title>` before CSS and using the `defer` attribute on scripts in the `<head>` significantly improves the critical rendering path by parallelizing resource fetching and providing immediate visual feedback. Additionally, event delegation with `e.target.closest('a')` is a robust way to handle navigation while reducing memory overhead and avoiding redundant `DOMContentLoaded` wrappers when using `defer`.
+**Action:** Always place `<title>` at the top of `<head>` and use `defer` for scripts to parallelize downloads, and prefer event delegation for interactive elements to keep memory footprint low.
