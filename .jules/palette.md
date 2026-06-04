@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Smooth Scrolling and Focus Management
+**Learning:** For single-page navigation, smooth scrolling must be accompanied by programmatically shifting focus to the target section. Using `tabindex="-1"` on target containers allows them to receive focus via JavaScript while remaining out of the natural tab order. A small delay (e.g., 500ms) ensures the focus shift happens after the scroll has significantly progressed, preventing the browser from jumping or clipping the animation.
+**Action:** Always implement focus management (target.focus()) alongside smooth scroll listeners and ensure target elements have `tabindex="-1"` and proper ARIA labels.
