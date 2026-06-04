@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Performance: Placing title before CSS allows the browser to render the title immediately -->
     <title>Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Performance: Using 'defer' allows the script to be fetched in parallel with HTML parsing -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>My Portfolio</h1>
-        <nav>
+        <nav id="main-nav">
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -17,18 +20,17 @@
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
+    <section id="about" tabindex="-1" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
         <p>Welcome to my portfolio website!</p>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
+    <section id="projects" tabindex="-1" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
         <p>Here are some of my projects...</p>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
+    <section id="contact" tabindex="-1" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
         <p>Email: example@example.com</p>
     </section>
-    <script src="script.js"></script>
 </body>
 </html>
