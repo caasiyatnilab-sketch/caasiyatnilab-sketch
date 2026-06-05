@@ -1,0 +1,4 @@
+## 2026-06-05 - [CSP for Static Portfolio]
+**Vulnerability:** Static sites without Content Security Policy (CSP) are vulnerable to Cross-Site Scripting (XSS) if an attacker can inject scripts (e.g. via compromised dependencies or input fields, though this site has none yet).
+**Learning:** For a simple static site with no external dependencies, a strict CSP like `default-src 'self'` is effective and safe. However, adding meta-tag based CSP should be carefully verified against all local and external assets (fonts, images, scripts) to avoid breaking functionality. Referrer-Policy `strict-origin-when-cross-origin` is a safe default to prevent data leakage in Referer headers.
+**Prevention:** Always include basic security headers even in static sites. Use `meta http-equiv` when server-side header configuration is not available (e.g., GitHub Pages).
