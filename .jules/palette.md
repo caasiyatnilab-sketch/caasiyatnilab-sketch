@@ -1,0 +1,3 @@
+## 2025-05-14 - [Sticky Header & Scroll-Spy Implementation]
+**Learning:** For single-page portfolio sites with a sticky header, native CSS `scroll-behavior: smooth` combined with `scroll-margin-top` is much more robust and accessible than JavaScript-based scrolling, as it preserves browser history (URL hashes) and focus management. Using `IntersectionObserver` for active link highlighting (scroll-spy) is performant and avoids expensive 'scroll' event listeners.
+**Action:** Always prefer native CSS smooth scrolling and `scroll-margin-top` for anchor navigation. Use `IntersectionObserver` with a centered `rootMargin` (e.g., -50%) for accurate active section detection.
