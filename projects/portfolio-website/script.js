@@ -3,12 +3,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    e.preventDefault();
+
+                    // Respect reduced motion preferences
+                    const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                    targetSection.scrollIntoView({
+                        behavior: shouldReduceMotion ? 'auto' : 'smooth'
+                    });
+
+                    // Shift focus to the section for keyboard accessibility
+                    // We use a timeout to ensure the scroll has started/finished
+                    // and prevent the browser from jumping to focus immediately
+                    setTimeout(() => {
+                        targetSection.focus({ preventScroll: true });
+                    }, 500);
+                }
             }
         });
     });
