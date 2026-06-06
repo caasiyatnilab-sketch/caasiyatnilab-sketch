@@ -3,12 +3,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Only handle internal anchor links
+            if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                e.preventDefault();
+
+                try {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } catch (error) {
+                    // Fail gracefully if targetId is not a valid selector
+                    console.error('Invalid scroll target:', targetId);
+                }
             }
         });
     });
