@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Move focus to the section for screen readers and keyboard users
+                targetSection.focus({ preventScroll: true });
             }
         });
     });
