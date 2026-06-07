@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Move focus to the target section after the scroll animation
+                setTimeout(() => {
+                    targetSection.focus();
+                }, 500);
             }
         });
     });
