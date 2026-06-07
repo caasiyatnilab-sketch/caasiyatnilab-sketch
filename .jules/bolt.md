@@ -1,0 +1,3 @@
+## 2025-06-07 - [Optimization of navigation and script loading]
+**Learning:** Offloading smooth scrolling from JavaScript to native CSS `scroll-behavior: smooth` improves performance by reducing main-thread execution and utilizing the browser's compositor. Restoring default anchor behavior also allows the URL hash to update, which is better for accessibility. Additionally, it's crucial to respect user preferences for reduced motion.
+**Action:** Always prefer native CSS solutions for animations and scrolling over JavaScript implementations when possible. Ensure script tags use `defer` to prevent blocking HTML parsing.
