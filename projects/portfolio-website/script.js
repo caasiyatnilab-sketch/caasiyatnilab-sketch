@@ -1,16 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const nav = document.querySelector('nav');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+    // Use event delegation to reduce memory overhead and improve performance
+    nav?.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const targetId = link.getAttribute('href');
+
+        // Only handle internal anchor links for smooth scrolling
+        if (targetId && targetId.startsWith('#') && targetId !== '#') {
+            try {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    e.preventDefault();
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (err) {
+                console.error('Invalid selector:', targetId);
             }
-        });
+        }
     });
     
     console.log('Portfolio website loaded successfully!');

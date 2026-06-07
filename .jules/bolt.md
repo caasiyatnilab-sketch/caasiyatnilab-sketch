@@ -1,0 +1,3 @@
+## 2025-05-14 - Critical Path and Event Delegation Optimization
+**Learning:** In static-only projects without a build system, manually optimizing the Critical Rendering Path (CRP) by ordering tags and using `defer` provides immediate FCP benefits. Additionally, even for small sites, event delegation on navigation elements reduces memory footprint and improves code maintainability. Testing smooth scroll interactions on short pages requires ensuring target sections have sufficient height (e.g., `min-height: 100vh`) to provide measurable scroll offsets.
+**Action:** Always check `<head>` tag order and script loading strategies in static sites. Use event delegation for lists of interactive elements. Ensure test environments have enough vertical space for scroll verification.
