@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Content Security Policy: Restricts resource loading to the same origin to mitigate XSS and injection attacks.
+         'unsafe-inline' for style-src is used here to allow existing inline styles if any, though not ideal. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+    <!-- Referrer Policy: Ensures no referrer information is sent with requests to protect user privacy. -->
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
