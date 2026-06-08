@@ -3,12 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    // Focus management: move focus to the section for keyboard/screen reader users
+                    // Wait for the scroll to finish or at least start
+                    setTimeout(() => {
+                        targetSection.focus();
+                    }, 500);
+                }
             }
         });
     });

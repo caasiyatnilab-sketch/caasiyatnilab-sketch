@@ -1,0 +1,3 @@
+## 2025-03-24 - Accessible Navigation & Focus Management
+**Learning:** For single-page navigation, smooth scrolling alone is insufficient for accessibility; programmatic focus must be moved to the target section (using `tabindex="-1"`) to ensure screen readers and keyboard users are correctly positioned. Using `setTimeout` (e.g., 500ms) before `.focus()` allows the scroll animation to progress, preventing jarring jumps or broken focus transitions.
+**Action:** Always pair smooth-scroll links with programmatic focus on the target section, and ensure sections have semantic labels (`aria-labelledby`).
