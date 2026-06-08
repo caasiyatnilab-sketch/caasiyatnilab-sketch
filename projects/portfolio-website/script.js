@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('a[href^="#"]');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            if (targetId === '#') return;
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Focus the target element after a short delay to ensure
+                // smooth scroll doesn't interfere with focus placement
+                setTimeout(() => {
+                    targetElement.focus({ preventScroll: true });
+                }, 800); // 800ms is a safe bet for most smooth scrolls
             }
         });
     });
     
-    console.log('Portfolio website loaded successfully!');
+    console.log('Portfolio website loaded with accessible navigation!');
 });

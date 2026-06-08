@@ -1,0 +1,3 @@
+## 2025-06-08 - Accessible Smooth Navigation Pattern
+**Learning:** Combining native CSS `scroll-behavior: smooth` with programmatic focus management requires a `setTimeout` delay (approx. 800ms) before calling `.focus()`. This ensures the focus shift happens after the scroll animation concludes, preventing focus-induced scrolling from fighting with the smooth transition.
+**Action:** Prefer CSS `scroll-behavior: smooth` to preserve standard browser history/URL hash behavior. Use a delayed `element.focus({ preventScroll: true })` in JavaScript to move focus to the target section for screen readers and keyboard users.
