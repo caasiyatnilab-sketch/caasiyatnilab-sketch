@@ -1,0 +1,3 @@
+## 2025-05-14 - Critical Rendering Path Optimization
+**Learning:** Moving scripts from the end of the `<body>` to the `<head>` with the `defer` attribute allows the browser's preload scanner to discover and download the script earlier in the page load lifecycle without blocking the initial DOM construction. Similarly, placing the `<title>` before the stylesheet `<link>` ensures the page title is available to the browser immediately upon parsing.
+**Action:** Always prefer `<script defer>` in the `<head>` over scripts at the end of the `<body>` for static assets to parallelize resource fetching.

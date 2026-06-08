@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Performance: Placing title before CSS allows the title to be rendered as soon as it's parsed -->
     <title>Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Performance: 'defer' allows the script to be downloaded in parallel with HTML parsing without blocking the DOM construction -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,6 +32,5 @@
         <h2>Contact</h2>
         <p>Email: example@example.com</p>
     </section>
-    <script src="script.js"></script>
 </body>
 </html>
