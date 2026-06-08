@@ -3,12 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            // Native CSS handles the smooth scroll.
+            // We only need to manage focus for accessibility.
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Wait for the native smooth scroll animation to finish before moving focus
+                setTimeout(() => {
+                    targetSection.focus({ preventScroll: true });
+                }, 800);
             }
         });
     });
