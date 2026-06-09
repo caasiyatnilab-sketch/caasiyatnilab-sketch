@@ -1,0 +1,3 @@
+## 2025-05-14 - Optimized critical path and event handling
+**Learning:** For static sites, moving the `<title>` tag before stylesheets and using `defer` for scripts optimizes the critical rendering path. Refactoring to event delegation using `e.target.closest('a')` reduces memory overhead and improves scalability, especially if more links are added. Robustness can be improved by validating hash links and using `try-catch` around `document.querySelector` to handle malformed hashes.
+**Action:** Always prioritize the critical path for static assets and use event delegation for repeating interactive elements like navigation links.
