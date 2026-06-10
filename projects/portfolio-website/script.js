@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Move focus to the section after scrolling
+                // We use a small delay to ensure the scroll has started/is in progress
+                // before shifting focus, which helps screen readers.
+                setTimeout(() => {
+                    targetSection.focus({ preventScroll: true });
+                }, 800);
             }
         });
     });
