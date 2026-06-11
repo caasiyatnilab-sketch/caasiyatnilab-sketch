@@ -7,9 +7,10 @@
     <title>Portfolio Website</title>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to Content</a>
     <header>
         <h1>My Portfolio</h1>
-        <nav>
+        <nav aria-label="Main Navigation">
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -17,18 +18,20 @@
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio website!</p>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of my projects...</p>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: example@example.com</p>
-    </section>
+    <main id="main-content" tabindex="-1">
+        <section id="about" aria-labelledby="about-heading" tabindex="-1">
+            <h2 id="about-heading">About Me</h2>
+            <p>Welcome to my portfolio website!</p>
+        </section>
+        <section id="projects" aria-labelledby="projects-heading" tabindex="-1">
+            <h2 id="projects-heading">Projects</h2>
+            <p>Here are some of my projects...</p>
+        </section>
+        <section id="contact" aria-labelledby="contact-heading" tabindex="-1">
+            <h2 id="contact-heading">Contact</h2>
+            <p>Email: example@example.com</p>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
