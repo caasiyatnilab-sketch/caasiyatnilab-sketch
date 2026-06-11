@@ -1,0 +1,3 @@
+## 2026-06-11 - [Native Smooth Scrolling & Focus Management]
+**Learning:** Replacing JavaScript smooth scrolling with native CSS `scroll-behavior: smooth` offloads animations to the compositor thread, improving performance and battery efficiency. However, it requires manual focus management for accessibility, as the browser doesn't automatically move focus to the target section when the hash changes.
+**Action:** Use a `setTimeout` (approx. 800ms) to move focus to the target section after the scroll transition, ensuring `tabindex="-1"` is set on the target. Also, include `prefers-reduced-motion` to respect user accessibility preferences.
