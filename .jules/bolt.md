@@ -1,0 +1,3 @@
+## 2026-06-11 - Frontend Critical Path and Interaction Optimization
+**Learning:** For static portfolio sites, the critical rendering path can be optimized by placing the <title> before stylesheets and using 'defer' for scripts. Event delegation on the navigation container is more efficient than individual listeners on each link, especially as the site grows. Native CSS 'scroll-behavior: smooth' provides a performant fallback/alternative to JS-based scrolling.
+**Action:** Always check script placement and attributes (defer/async). Use event delegation for navigation and lists. Prefer native CSS for animations/scrolling when possible.
