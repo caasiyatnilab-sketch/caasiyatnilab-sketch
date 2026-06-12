@@ -1,0 +1,3 @@
+## 2025-05-15 - Critical Rendering Path and Native Smooth Scrolling
+**Learning:** Offloading smooth scrolling to the browser's compositor thread via `scroll-behavior: smooth` is more efficient than manual JS-based event listeners. Additionally, optimizing script loading with `defer` and placing the `<title>` tag before stylesheets improves the critical rendering path.
+**Action:** Always check for opportunities to replace main-thread JavaScript with native CSS features, and ensure the HTML head is ordered for optimal resource discovery and rendering. Always include comments in the code explaining these optimizations to avoid them being flagged as noise.
