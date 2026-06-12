@@ -1,17 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-    
-    console.log('Portfolio website loaded successfully!');
+document.addEventListener('DOMContentLoaded', function () {
+  const nav = document.querySelector('nav');
+
+  nav.addEventListener('click', function (e) {
+    const link = e.target.closest('a');
+    if (!link || !link.getAttribute('href') || link.getAttribute('href') === '#')
+      return;
+
+    const targetId = link.getAttribute('href');
+    if (targetId.startsWith('#')) {
+      e.preventDefault();
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Update focus after the smooth scroll completes
+        // 500ms is usually enough for the animation
+        setTimeout(() => {
+          targetSection.focus();
+        }, 500);
+
+        // Update URL without jump
+        history.pushState(null, null, targetId);
+      }
+    }
+  });
+
+  console.log('Portfolio website loaded successfully!');
 });
