@@ -1,14 +1,29 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const navs = document.querySelectorAll('nav');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+    navs.forEach(nav => {
+        nav.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (link) {
+                const targetId = link.getAttribute('href');
+
+                // Validate that targetId is a valid internal anchor to prevent potential selector injection/errors
+                if (targetId && targetId.startsWith('#')) {
+                    if (targetId === '#') {
+                        // Scroll to top for empty anchor
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (targetId.length > 1) {
+                        const targetSection = document.querySelector(targetId);
+
+                        if (targetSection) {
+                            e.preventDefault();
+                            targetSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                }
             }
         });
     });
