@@ -1,3 +1,5 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('nav a');
     
@@ -9,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Accessibility: Move focus to the target section after scrolling
+                targetSection.setAttribute('tabindex', '-1');
+                targetSection.focus({ preventScroll: true });
             }
         });
     });
