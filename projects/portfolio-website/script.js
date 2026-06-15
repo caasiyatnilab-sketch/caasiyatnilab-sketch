@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Move focus to the target section for accessibility
+                // preventScroll: true ensures the focus call doesn't jump, preserving smooth scroll
+                targetSection.focus({ preventScroll: true });
             }
         });
     });
