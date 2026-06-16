@@ -1,14 +1,24 @@
+"use strict";
+
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('nav a');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Security: Validate that the targetId is a valid internal anchor starting with '#'
+            // and use getElementById to prevent selector injection.
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const id = targetId.slice(1);
+
+                // If id is empty (href="#"), scroll to top/body
+                const targetSection = id ? document.getElementById(id) : document.body;
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
