@@ -1,17 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-    
-    console.log('Portfolio website loaded successfully!');
-});
+// Script loaded with 'defer' executes after HTML parsing, so DOMContentLoaded is redundant.
+// Native CSS 'scroll-behavior: smooth' handles smooth scrolling, making JS implementation redundant.
+console.log('Portfolio website loaded successfully!');
