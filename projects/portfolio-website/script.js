@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Shift focus to the target section after scrolling
+                // preventScroll: true is used to avoid interfering with the smooth scroll
+                targetSection.focus({ preventScroll: true });
             }
         });
     });

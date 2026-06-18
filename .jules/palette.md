@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Smooth Scroll with Focus Management
+**Learning:** In static single-page sites, native CSS smooth scroll or simple JS scroll functions fail to move keyboard focus to the target section. This leaves keyboard/screen-reader users stranded at the navigation menu.
+**Action:** Always pair smooth scrolling with programmatic focus shifting. Add `tabindex="-1"` to target sections and call `.focus({ preventScroll: true })` after triggering the scroll. Use `:focus-visible` on navigation links to provide clear focus indicators for keyboard users while keeping the UI clean for mouse users. Use `section:focus { outline: none; }` to prevent the browser from drawing a box around the entire section when it receives focus programmatically.
