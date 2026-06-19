@@ -1,14 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('nav a, .skip-link');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Only handle internal links
+            if (targetId.startsWith('#') && targetId.length > 1) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // Shift focus to the target element after scrolling
+                    // Using a small timeout to ensure scroll has started/finished in some browsers
+                    // and to allow the smooth scroll to feel natural before focus shift
+                    setTimeout(() => {
+                        targetElement.focus({ preventScroll: true });
+                    }, 500);
+                }
             }
         });
     });

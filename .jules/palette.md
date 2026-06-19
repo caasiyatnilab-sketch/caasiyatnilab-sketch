@@ -1,0 +1,3 @@
+## 2025-05-14 - Programmatic Focus Management for Smooth Scrolling
+**Learning:** Native CSS `scroll-behavior: smooth` and JavaScript `scrollIntoView` do not automatically move keyboard focus to the target element. This leaves keyboard and screen reader users at the top of the page after a "navigation" event, forcing them to tab through the entire header again.
+**Action:** Always use `.focus()` on the target element after a smooth scroll completes. Use `{ preventScroll: true }` in the focus call to avoid conflicting with the ongoing or finished smooth scroll animation. Ensure target sections have `tabindex="-1"` to be programmatically focusable.
