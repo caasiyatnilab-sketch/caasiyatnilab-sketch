@@ -1,0 +1,3 @@
+## 2026-06-19 - [Accessibility and Keyboard Navigation Enhancements]
+**Learning:** Standard linear layouts often lack essential accessibility features like skip-to-content links and proper ARIA landmarks, which are crucial for keyboard and screen reader users. Additionally, default brand colors like `#667eea` may not always meet WCAG AA contrast standards (3.66:1) for headings on white backgrounds.
+**Action:** Always verify color contrast using relative luminance calculations and implement standard accessibility landmarks (skip links, `<main>`, `aria-labels`) early in the design process to ensure an inclusive user experience.
