@@ -1,0 +1,3 @@
+## 2025-05-15 - Programmatic Focus Management after Smooth Scroll
+**Learning:** In static sites with smooth scrolling, native browser behavior often fails to shift keyboard focus to the scroll target. Manually calling `.focus()` after a scroll is necessary for accessibility. Using `{ preventScroll: true }` in the `.focus()` call is critical when combined with a delay (e.g., 500ms) to ensure the browser doesn't execute a secondary "jump" scroll that interrupts the smooth animation.
+**Action:** Always implement a delayed focus shift with `preventScroll: true` when overriding default anchor behavior for smooth scrolling.
