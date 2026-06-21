@@ -1,0 +1,3 @@
+## 2025-06-21 - Focus Management after Smooth Scroll
+**Learning:** In a single-page application with smooth scrolling navigation, simply scrolling to the element is insufficient for accessibility as the keyboard focus remains on the clicked link. Programmatic focus management (using `.focus()`) is required to move the user's context, but it must be delayed to avoid interrupting the smooth scroll animation and should use `{ preventScroll: true }` to avoid double-scrolling or jumping in some browsers.
+**Action:** Use a `setTimeout` (approx 500ms) after initiating a smooth scroll to programmatically shift focus to the target element with `tabindex="-1"`.
