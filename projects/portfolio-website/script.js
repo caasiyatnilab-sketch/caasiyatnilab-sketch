@@ -1,17 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const nav = document.querySelector('nav');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+    if (nav) {
+        nav.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const href = link.getAttribute('href');
+
+            // Only handle internal hash links
+            if (href && href.startsWith('#') && href.length > 1) {
+                e.preventDefault();
+                const targetId = href;
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    // Update URL without jarring jump
+                    history.pushState(null, '', targetId);
+
+                    // Smooth scroll to target
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                    // Move focus to target section after scroll
+                    // Delay focus to allow scroll to start/complete for better SR experience
+                    setTimeout(() => {
+                        targetSection.focus({ preventScroll: true });
+                    }, 500);
+                }
             }
         });
-    });
+    }
     
     console.log('Portfolio website loaded successfully!');
 });

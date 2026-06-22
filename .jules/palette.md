@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Smooth-Scrolling and Focus Management
+**Learning:** Native CSS `scroll-behavior: smooth` does not move keyboard focus to the target element. To maintain accessibility, JavaScript must be used to update the URL hash (`history.pushState`) and programmatically move focus to the target section using `element.focus({ preventScroll: true })`. A delay (e.g., 500ms) is necessary to ensure the scroll animation is sufficiently advanced before the focus shift is announced by screen readers.
+**Action:** Always pair smooth-scrolling with programmatic focus management, utilizing `tabindex="-1"` on target sections and `preventScroll: true` to avoid jarring scroll jumps.
