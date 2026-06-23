@@ -1,0 +1,3 @@
+## 2025-05-14 - Navigation Scroll-Spy and Accessibility
+**Learning:** Combining CSS `scroll-behavior: smooth` with a JavaScript scroll-spy requires careful consideration of timing and offsets. Using `requestAnimationFrame` for throttling the scroll listener provides a smooth UX without performance degradation on simple layouts. Additionally, ensuring a "Skip to main content" link and WCAG-compliant contrast ratios (like #4c51bf for headings) significantly improves the experience for keyboard and low-vision users.
+**Action:** Use native CSS for smooth scrolling when possible, and ensure scroll-spy logic accounts for header offsets and bottom-of-page edge cases.
