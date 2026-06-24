@@ -1,0 +1,3 @@
+## 2025-05-15 - Portfolio Accessibility & Navigation
+**Learning:** For single-page portfolio sites, combining native CSS `scroll-behavior: smooth` with `IntersectionObserver` for scroll-spy provides a performant and accessible experience. Using `aria-current="page"` on the active navigation link is essential for screen reader users to understand their position in a one-page layout. Additionally, shifting primary brand colors (e.g., from #667eea to #4c51bf) can be a critical micro-UX win for WCAG AA compliance without sacrificing design intent.
+**Action:** Always prefer native smooth scrolling over JS-based `scrollIntoView` when possible, and ensure `aria-current` is updated alongside visual 'active' states.
