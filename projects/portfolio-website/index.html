@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
+    <!-- PERFORMANCE OPTIMIZATION: script deferring
+         Moving the script to the <head> with 'defer' allows it to be fetched in parallel
+         with HTML parsing without blocking rendering, improving Time to Interactive. -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,6 +33,5 @@
         <h2>Contact</h2>
         <p>Email: example@example.com</p>
     </section>
-    <script src="script.js"></script>
 </body>
 </html>
