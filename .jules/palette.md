@@ -1,0 +1,3 @@
+## 2025-05-21 - [Accessibility: Focus Management and Skip Links]
+**Learning:** Programmatic focus management (manual `.focus()` calls) is necessary for accessibility in single-page navigation because native CSS `scroll-behavior: smooth` does not consistently shift keyboard focus to target elements in all headless browser environments like Playwright/Chromium. A delay (e.g., 500ms) is needed to ensure the scroll is advanced enough for the focus shift to be effective and correctly announced by screen readers.
+**Action:** Always implement manual focus management with a short delay after smooth scrolling and include a 'Skip to Content' link for keyboard-only navigation.
