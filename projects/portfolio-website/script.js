@@ -3,12 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // SECURITY: Validate that the href is an internal hash link and not just '#'
+            // This prevents the script from attempting to process external links or invalid selectors
+            if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                e.preventDefault();
+
+                try {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } catch (error) {
+                    // SECURITY: Fail securely by catching potential DOMException from invalid selectors
+                    // and log a generic message without exposing internal details
+                    console.error('Navigation error occurred.');
+                }
             }
         });
     });
