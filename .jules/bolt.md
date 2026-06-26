@@ -1,0 +1,3 @@
+## 2025-05-22 - Script Loading and Event Delegation
+**Learning:** Moving scripts to the `<head>` with the `defer` attribute improves TTI by parallelizing downloads with HTML parsing. In this state, the `DOMContentLoaded` wrapper in JavaScript becomes redundant and can be removed to slightly reduce execution overhead and code complexity. Event delegation on the `<nav>` element further optimizes the application by reducing the number of active event listeners.
+**Action:** Always prefer `defer` for non-critical scripts and use event delegation for navigation components to ensure scalability and performance.
