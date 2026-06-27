@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-    
+    /* Performance: Manual JS-based smooth scrolling has been replaced by CSS 'scroll-behavior: smooth'.
+       This reduces main-thread execution and allows the browser to handle animations more efficiently. */
     console.log('Portfolio website loaded successfully!');
 });
