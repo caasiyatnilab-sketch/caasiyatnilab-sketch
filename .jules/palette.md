@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Smooth Scrolling & Skip Links
+**Learning:** Adding smooth scrolling via JavaScript often breaks accessibility because keyboard focus remains on the link that was clicked, rather than moving to the target content. Additionally, static sections need `tabindex="-1"` to be programmatically focusable. A "Skip to Content" link is a vital but often overlooked entry point for keyboard users.
+**Action:** Always pair smooth scrolling with programmatic focus management (`element.focus()`) and ensure target sections have `tabindex="-1"`. Use a small delay (e.g., 500ms) to allow the scroll animation to progress before moving focus to ensure a better experience for screen reader users.
