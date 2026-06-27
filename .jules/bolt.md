@@ -1,0 +1,3 @@
+## 2026-06-27 - Native Smooth Scrolling Optimization
+**Learning:** Replaced manual JavaScript-based smooth scrolling with the native CSS 'scroll-behavior: smooth' property. This offloads the scroll animation to the browser's compositor thread, reducing main-thread execution and improving frame rates during navigation. It also ensures that the URL hash is correctly updated, which is better for accessibility and browser history.
+**Action:** Always prefer native CSS solutions for animations and transitions (like 'scroll-behavior') over JavaScript implementations to keep the main thread free for critical application logic.
