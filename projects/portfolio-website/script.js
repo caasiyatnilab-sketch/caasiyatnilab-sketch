@@ -1,14 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const allLinks = document.querySelectorAll('a[href^="#"]');
     
-    navLinks.forEach(link => {
+    allLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
+                e.preventDefault();
                 targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Update focus for accessibility
+                targetSection.setAttribute('tabindex', '-1');
+                targetSection.focus({ preventScroll: true });
+
+                // Update URL hash
+                history.pushState(null, null, targetId);
             }
         });
     });
