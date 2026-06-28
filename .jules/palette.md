@@ -1,0 +1,3 @@
+## 2026-06-28 - ScrollSpy and Focus Management for Single Page Navigation
+**Learning:** For single-page portfolio sites, using `IntersectionObserver` with a centered `rootMargin` (e.g., `-45% 0px -45% 0px`) ensures accurate section highlighting even when multiple short sections are visible. Additionally, manual focus management (setting `tabindex="-1"` and calling `.focus()`) when clicking navigation links is crucial for screen reader users and keyboard navigators to ensure they are actually moved to the target content.
+**Action:** Always implement `IntersectionObserver` for navigation highlighting and ensure target sections receive programmatic focus on navigation.
