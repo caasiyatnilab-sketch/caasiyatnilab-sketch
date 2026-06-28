@@ -1,0 +1,3 @@
+## 2025-06-28 - Accessible smooth scrolling and focus management
+**Learning:** Implementing JavaScript-based smooth scrolling without manual focus management breaks accessibility for keyboard and screen reader users, as the focus remains on the clicked link rather than moving to the target content. Additionally, native `scroll-behavior: smooth` is efficient but doesn't handle the focus shift.
+**Action:** Always pair smooth scroll logic with programmatic focus management (`element.focus()`) and update the URL hash via `history.pushState` to ensure a consistent and accessible navigation experience. Ensure target sections have `tabindex="-1"` to be focusable.
