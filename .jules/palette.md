@@ -1,0 +1,3 @@
+## 2026-06-29 - Enhanced Navigation & Accessibility Pattern
+**Learning:** Combining 'Skip to Content' links, sticky headers with 'scroll-margin-top', and IntersectionObserver-based ScrollSpy provides a seamless, high-accessibility navigation experience. Programmatic focus management (setting tabindex='-1' and calling .focus()) is essential for keyboard users when using internal links. Smooth scrolling must respect 'prefers-reduced-motion' even in JavaScript implementations.
+**Action:** Always implement programmatic focus management and respect reduced-motion preferences when overriding default browser navigation behavior.
