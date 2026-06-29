@@ -1,0 +1,3 @@
+## 2025-05-14 - Optimized Script Loading and Event Handling
+**Learning:** In this static site architecture, moving the script to the `<head>` with the `defer` attribute allows for parallel downloading with HTML parsing and removes the need for the `DOMContentLoaded` event listener, streamlining the execution path. Event delegation on the `<nav>` element further reduces memory overhead by using a single listener for all navigation links.
+**Action:** Always prefer `defer` in `<head>` and event delegation for navigation components in similar static projects to improve TTI and reduce runtime memory footprint.
