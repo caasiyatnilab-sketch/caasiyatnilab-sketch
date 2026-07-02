@@ -1,0 +1,3 @@
+## 2025-05-14 - Optimized script loading and event handling
+**Learning:** Moving scripts to the `<head>` with the `defer` attribute optimizes the Critical Rendering Path by allowing parallel downloads during HTML parsing. Combining CSS-based `scroll-behavior: smooth` with JavaScript event delegation provides a performant, native-feeling navigation experience while maintaining a single point of control for link validation and error handling.
+**Action:** Default to `defer` in `<head>` for non-critical scripts and prefer CSS for animations like smooth scrolling, while using event delegation to minimize memory overhead.
