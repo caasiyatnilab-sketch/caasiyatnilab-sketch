@@ -5,10 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            try {
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                    // Focus management after smooth scroll
+                    // A small delay ensures the transition is underway or completed
+                    setTimeout(() => {
+                        targetSection.focus();
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Invalid selector:', targetId, error);
             }
         });
     });
