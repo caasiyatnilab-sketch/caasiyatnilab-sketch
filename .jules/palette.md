@@ -1,0 +1,3 @@
+## 2026-07-02 - Accessible Smooth Scrolling Pattern
+**Learning:** Programmatic smooth scrolling via `scrollIntoView` or similar methods only moves the viewport visually. Without manual focus management (using `tabindex="-1"` and `.focus()`), keyboard and screen reader focus remains on the triggering element, causing a disconnect between the visual position and the interactive focus point.
+**Action:** Always pair smooth scroll interactions with programmatic focus management on the target element. Use `tabindex="-1"` on non-interactive targets and `preventScroll: true` in the `.focus()` call to avoid conflict with the smooth scroll animation.

@@ -1,14 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('nav a, .skip-link');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const href = this.getAttribute('href');
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Only handle internal links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href;
+
+                try {
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        // Smooth scroll
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                        // Focus management for accessibility
+                        targetSection.setAttribute('tabindex', '-1');
+                        targetSection.focus({ preventScroll: true });
+
+                        // Update URL hash without jumping
+                        history.pushState(null, null, targetId);
+                    }
+                } catch (error) {
+                    console.error('Invalid selector:', targetId);
+                }
             }
         });
     });
