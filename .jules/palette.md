@@ -1,0 +1,3 @@
+## 2025-07-03 - [Accessibility: Smooth Scrolling and Focus Management]
+**Learning:** When using `scrollIntoView` for navigation, visual positioning alone is insufficient for screen reader users. The browser focus remains on the clicked link, leading to a disconnected experience where the screen reader doesn't announce the new content and subsequent tab presses start from the header.
+**Action:** Always pair smooth-scrolling with programmatic focus management (`element.focus()`). Target elements must have `tabindex="-1"` to be focusable. A small delay (e.g., 500ms) might be necessary to ensure the transition is underway or completed before focusing.
