@@ -5,10 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            try {
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                    // Accessibility: Move focus to the target section after scrolling
+                    // Using setTimeout to ensure the section is focused after animation starts/completes
+                    setTimeout(() => {
+                        targetSection.focus();
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Invalid selector:', targetId, error);
             }
         });
     });
