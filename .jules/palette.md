@@ -1,0 +1,3 @@
+## 2025-07-05 - Programmatic Focus Management for Smooth Scrolling
+**Learning:** In single-page applications or static sites using smooth scrolling for internal navigation, focus often remains on the clicked link, making it difficult for keyboard and screen reader users to know where they are. Programmatically moving focus to the target section after the scroll transition ensures a much better accessibility experience.
+**Action:** Always include `tabindex="-1"` on target sections and use `element.focus()` (potentially with a slight delay to account for transitions) after smooth-scrolling to an internal anchor.
