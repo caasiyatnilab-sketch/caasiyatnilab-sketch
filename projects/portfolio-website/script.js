@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('nav a, .skip-link');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            if (targetId.startsWith('#')) {
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    // Let the browser handle smooth scrolling via CSS scroll-behavior
+                    // We just need to manage focus for accessibility
+                    targetSection.setAttribute('tabindex', '-1');
+                    targetSection.focus();
+                }
             }
         });
     });
