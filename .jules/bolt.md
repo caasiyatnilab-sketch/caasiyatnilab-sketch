@@ -1,0 +1,7 @@
+## 2026-07-05 - Native Smooth Scrolling vs JS-driven ScrollIntoView
+**Learning:** For simple fragment-based navigation, native CSS `scroll-behavior: smooth` is superior to JavaScript-driven `element.scrollIntoView({ behavior: 'smooth' })`. Native scrolling can be offloaded to the browser's compositor thread, reducing main-thread work and potentially avoiding jank, especially on resource-constrained devices or complex pages.
+**Action:** Prefer CSS `scroll-behavior: smooth` and native fragment navigation (anchors) over manual JS scrolling. When doing so, ensure accessibility by manually managing focus with `tabindex="-1"` and `.focus()` on the target elements, as native fragment navigation doesn't always handle non-interactive element focus consistently across all user agents.
+
+## 2026-07-05 - Script Placement and Execution Strategy
+**Learning:** Moving `<script>` tags to the `<head>` with the `defer` attribute allows for parallel downloading of scripts while the HTML parser continues, without blocking DOM construction. This improves the critical rendering path compared to placing scripts at the end of the `<body>` (which blocks the end of the body parse) or using `async` (which executes as soon as it's downloaded, potentially blocking parsing).
+**Action:** Use `<script defer src="...">` in the `<head>` as the default strategy for non-critical scripts that depend on the full DOM being available.
