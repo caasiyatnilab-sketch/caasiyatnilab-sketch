@@ -1,0 +1,3 @@
+## 2025-05-15 - Accessible Navigation Pattern for Static Sites
+**Learning:** For static sites without client-side routing, implementing a "Skip to main content" link combined with programmatic focus management (using `tabindex="-1"` and `.focus()`) after smooth scrolling ensures that keyboard and screen reader users have a consistent and accessible navigation experience. A small delay (e.g., 500ms) in focusing helps avoid issues where focus shifts before the target is in view.
+**Action:** Always include a skip link and ensure target sections are programmatically focusable when implementing smooth-scrolling navigation.
