@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Portfolio Website</title>
+    <style>
+        /* Optimization: Enable native smooth scrolling.
+           This offloads animations to the browser's compositor thread,
+           improving performance over JavaScript-based solutions. */
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h1 { text-align: center; margin-bottom: 1rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: bold; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #eee; }
+        section h2 { color: #667eea; margin-bottom: 1rem; font-size: 2rem; }
+        section p { font-size: 1.1rem; color: #666; }
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; gap: 1rem; text-align: center; }
+            section { padding: 2rem 1rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,18 +36,39 @@
             </ul>
         </nav>
     </header>
-    <section id="about">
+    <section id="about" tabindex="-1">
         <h2>About Me</h2>
         <p>Welcome to my portfolio website!</p>
     </section>
-    <section id="projects">
+    <section id="projects" tabindex="-1">
         <h2>Projects</h2>
         <p>Here are some of my projects...</p>
     </section>
-    <section id="contact">
+    <section id="contact" tabindex="-1">
         <h2>Contact</h2>
         <p>Email: example@example.com</p>
     </section>
-    <script src="script.js"></script>
+    <script>
+        /* Optimization: Asset Inlining.
+           Combining CSS and JS into the HTML reduces the total number of HTTP requests
+           from 3 down to 1. For this small portfolio, this provides near-instant loading
+           by eliminating connection setup overhead and RTT for small payloads. */
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        /* Accessibility: Ensure focus management follows visual scroll. */
+                        targetSection.scrollIntoView();
+                        targetSection.focus();
+                    }
+                });
+            });
+            console.log('Portfolio website loaded successfully!');
+        });
+    </script>
 </body>
 </html>
