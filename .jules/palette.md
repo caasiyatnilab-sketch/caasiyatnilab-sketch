@@ -1,0 +1,3 @@
+## 2025-05-14 - Focus Management in Single Page Navigation
+**Learning:** For single-page websites using smooth scrolling, simply scrolling the target element into view is insufficient for keyboard and screen reader users. The programmatic focus must be explicitly moved to the target section (using `element.focus()`) after the scroll completes to ensure the next "Tab" key press starts from the new location and screen readers announce the new context. Sections need `tabindex="-1"` to be programmatically focusable.
+**Action:** Always implement a focus management strategy (e.g., using `setTimeout` to wait for scroll animation) when overriding default anchor link behavior with smooth scrolling.
